@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>count</title>
+		<style type="text/css">
+			#j_tx {
+				line-height: 24px;
+			}
+			textarea {
+				margin: 30px 22px;
+				padding: 14px 6px;
+				font-weight: bold;
+				overflow: hidden;
+			}
+			#a, #b {
+				border: solid 0px red;
+			}
+			#b {
+				position: absolute;
+				top: 200px;
+				left: 340px;
+			}
+		</style>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<!--<script src="../libs/jquery-1.7.2.js"></script>-->
+		<script src="jquery.charcount.js"></script>
+		<script>
+            $(function() {
+                $("#j_tx").charcount(60);
+                $("#j_text").charcount({
+                    max : 10,
+                    overflowevt : function() {
+                        alert("overflow char : " + this.value.substring(10));
+                    }
+                });
+                $("#j_text1").charcount(60);
+                $("#j_text2").charcount();
+            });
+		</script>
+
+	</head>
+
+	<body>
+		<p>
+			<label>限定输入60个字符：</label>
+			<input  type="text" id="j_tx" size="80" />
+		</p>
+		<p>
+			<label>限定输入10个字符，并绑定自定字符超出事件</label>
+			<div id="a">
+				<textarea name='txa' id='j_text' cols="30" rows="4"></textarea>
+			</div>
+		</p>
+		<p>
+			<label>限定只能输入60个字符。默认字符超出事件</label>
+			<div id='b'>
+				<textarea name='txa' id='j_text1' cols="30" rows="5" ></textarea>
+			</div>
+		</p>
+		<p>
+			<label>显示当前输入字符个数</label><br/>
+			<textarea name='txa' id='j_text2' cols="30" rows="5" ></textarea>
+		</p>
+
+	</body>
+</html>
